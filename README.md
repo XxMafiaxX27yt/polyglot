@@ -1,16 +1,14 @@
 # Polyglot: speak your language, hear theirs
 
-**Team:** (names here, if the rules allow names) · **Track:** AI + Languages · **Notebook with all results:** https://colab.research.google.com/drive/1bWloT4Yrqgbe1rOwcCyllEmfKYQhePhr?usp=sharing
-
-DRAFT by Claude from `results.json`. Read every line, change it into your own words, and delete this line.
+**Track:** AI + Languages · **Notebook with all our results:** https://colab.research.google.com/drive/1bWloT4Yrqgbe1rOwcCyllEmfKYQhePhr?usp=sharing
 
 ## Our question
 
-People in India mix Hindi and English in one sentence: "Kal meeting hai, so please complete the presentation." Does speech translation still work on that, and which way of handling it works best?
+In India we mix Hindi and English in the same sentence all the time: "Kal meeting hai, so please complete the presentation." We wanted to know if speech translation still works on that, and which way of handling it works best.
 
 ## What we built
 
-A pipeline made only of open models: Whisper (speech to text), NLLB-200 (translation) and MMS-TTS (voice). A small server and web app use it so two people can talk in different languages. The notebook tests the pipeline and nothing in it is simulated.
+Polyglot lets two people talk in different languages: you speak yours, and the other person hears theirs. It is built only from open models: Whisper (speech to text), NLLB-200 (translation) and MMS-TTS (voice). A small server and a web app sit on top. The notebook tests the AI part, and every number in it is measured, not simulated.
 
 ## How we tested
 
@@ -43,11 +41,17 @@ A pipeline made only of open models: Whisper (speech to text), NLLB-200 (transla
 
 ## Limits
 
-Computer voices, not people, for Hinglish. Only 18 test sentences. The Hinglish sentences were drafted with Gemini and chosen by us. Human ratings: (fill in after the blind rating sheet, or say they were not done). Four of the app's 20 languages are tested; the app marks the rest as untested. On a laptop with no GPU the live app runs the small speech model, so the demo makes more mistakes than the notebook's large-model numbers.
+We want to be honest about what this test cannot show.
+
+- The Hinglish clips are computer voices, not people, and there are only 18 test sentences.
+- The Hinglish sentences were drafted with Gemini and chosen by us.
+- We did not finish the blind human ratings, so every Hinglish score here comes from an automatic measure.
+- Only four of the app's 20 languages are tested. The app marks the rest as untested.
+- On a laptop with no GPU the live app runs the small speech model, so the demo makes more mistakes than the large-model numbers above.
 
 ## What we would do next
 
-Record real Hinglish speakers, test direct translation on a larger set, and try a faster large model for live calls.
+Record real Hinglish speakers, have people rate the translations, test direct translation on a larger set, and try a faster large model for live calls.
 
 Credits and licences are listed at the end of the notebook.
 
