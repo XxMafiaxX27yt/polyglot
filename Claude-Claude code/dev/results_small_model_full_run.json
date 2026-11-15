@@ -1,0 +1,752 @@
+{
+ "generated": "2026-11-14T12:33:07Z",
+ "models": {
+  "core": "0.1.0",
+  "asr_model": "openai/whisper-small",
+  "mt_model": "facebook/nllb-200-distilled-600M",
+  "tts_model": "facebook/mms-tts-<lang>",
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "warmup_s": 19.7
+ },
+ "sentences_per_language": 100,
+ "quick_test": false,
+ "asr": {
+  "hi": {
+   "wer": 0.7724,
+   "cer": 0.4563,
+   "wer_auto": 0.7068,
+   "wer_room": 0.7724,
+   "lang_right_auto": 0.89,
+   "lang_right_room": 1.0,
+   "n": 100,
+   "wer_compare": 0.2912,
+   "cer_compare": 0.1051
+  },
+  "ta": {
+   "wer": 0.7836,
+   "cer": 0.3096,
+   "wer_auto": 0.7986,
+   "wer_room": 0.7872,
+   "lang_right_auto": 0.92,
+   "lang_right_room": 0.99,
+   "n": 100,
+   "wer_compare": 0.4848,
+   "cer_compare": 0.1333
+  },
+  "bn": {
+   "wer": 1.2887,
+   "cer": 1.3129,
+   "wer_auto": 1.231,
+   "wer_room": 1.2299,
+   "lang_right_auto": 0.97,
+   "lang_right_room": 0.98,
+   "n": 100,
+   "wer_compare": 0.8409,
+   "cer_compare": 0.305
+  },
+  "en": {
+   "wer": 0.0599,
+   "cer": 0.0287,
+   "wer_auto": 0.0599,
+   "wer_room": 0.0599,
+   "lang_right_auto": 1.0,
+   "lang_right_room": 1.0,
+   "n": 100,
+   "wer_compare": 0.0446,
+   "cer_compare": 0.0225
+  }
+ },
+ "mt": {
+  "hi-en": {
+   "copy": {
+    "chrf": 0.64,
+    "ci": [
+     0.47,
+     0.89
+    ]
+   },
+   "nllb": {
+    "chrf": 64.03,
+    "ci": [
+     61.14,
+     66.79
+    ]
+   },
+   "n": 100
+  },
+  "ta-en": {
+   "copy": {
+    "chrf": 0.6,
+    "ci": [
+     0.47,
+     0.8
+    ]
+   },
+   "nllb": {
+    "chrf": 57.58,
+    "ci": [
+     54.95,
+     60.35
+    ]
+   },
+   "n": 100
+  },
+  "bn-en": {
+   "copy": {
+    "chrf": 0.5,
+    "ci": [
+     0.29,
+     0.84
+    ]
+   },
+   "nllb": {
+    "chrf": 59.05,
+    "ci": [
+     55.08,
+     62.3
+    ]
+   },
+   "n": 100
+  },
+  "en-hi": {
+   "copy": {
+    "chrf": 0.67,
+    "ci": [
+     0.49,
+     0.92
+    ]
+   },
+   "nllb": {
+    "chrf": 56.8,
+    "ci": [
+     54.07,
+     59.46
+    ]
+   },
+   "n": 100
+  },
+  "en-ta": {
+   "copy": {
+    "chrf": 0.53,
+    "ci": [
+     0.42,
+     0.72
+    ]
+   },
+   "nllb": {
+    "chrf": 56.33,
+    "ci": [
+     53.85,
+     58.88
+    ]
+   },
+   "n": 100
+  },
+  "en-bn": {
+   "copy": {
+    "chrf": 0.51,
+    "ci": [
+     0.29,
+     0.87
+    ]
+   },
+   "nllb": {
+    "chrf": 49.23,
+    "ci": [
+     46.55,
+     51.89
+    ]
+   },
+   "n": 100
+  },
+  "hi-ta": {
+   "copy": {
+    "chrf": 0.48,
+    "ci": [
+     0.34,
+     0.72
+    ]
+   },
+   "nllb": {
+    "chrf": 52.7,
+    "ci": [
+     50.76,
+     55.01
+    ]
+   },
+   "n": 100
+  }
+ },
+ "s2t": {
+  "hi-en": {
+   "Perfect transcript → NLLB": 64.03,
+   "Whisper → NLLB": 34.74,
+   "Whisper translates directly": 37.77
+  },
+  "en-hi": {
+   "Perfect transcript → NLLB": 56.8,
+   "Whisper → NLLB": 54.16
+  },
+  "ta-en": {
+   "Perfect transcript → NLLB": 57.58,
+   "Whisper → NLLB": 33.51,
+   "Whisper translates directly": 19.0
+  },
+  "en-ta": {
+   "Perfect transcript → NLLB": 56.33,
+   "Whisper → NLLB": 54.75
+  },
+  "bn-en": {
+   "Perfect transcript → NLLB": 59.05,
+   "Whisper → NLLB": 12.76,
+   "Whisper translates directly": 22.35
+  },
+  "en-bn": {
+   "Perfect transcript → NLLB": 49.23,
+   "Whisper → NLLB": 48.33
+  }
+ },
+ "latencyMs": {
+  "asr": 2249,
+  "mt": 1528,
+  "tts": 437,
+  "total": 4006,
+  "note": "median computing time: one Hindi speaker, English and Tamil listeners"
+ },
+ "worst": [
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1791",
+   "model": "तो थो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो तो",
+   "correct": "चीज़ों पर कुछ बनाकर या खरोंच कर इस जगह को नुक़सान न पहुँचाएँ.",
+   "score": "WER 1138%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1928",
+   "model": "ஆதி 96,76 வரைய் முத்துப் பிடித்து முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் முறையில் ம",
+   "correct": "1976 வரை, முப்பது சதவீத மச்சு பிச்சு மீட்டெடுக்கப்பட்டது, அந்த மீட்டெடுக்கும் நடவடிக்கைகள் இன்று வரைத் தொடர்கின்றன",
+   "score": "WER 454%",
+   "why": "auto-guess: has numbers; extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1772",
+   "model": "शुटरां चिन्र्टि समवबद जुग्टो करहे चिल लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे लेवे ले",
+   "correct": "সুতরাং, চিহ্নটি সম্ভবত যুক্ত করা হয়েছিল লেবেল হিসাবে।",
+   "score": "WER 912%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1695",
+   "model": "A simple popular dimmer, especially during the summer, is pa'am ali, bread with olive oil, tomato and any available condiments such as cheese, tuna fish, etc.",
+   "correct": "A simple popular dinner, especially during the summer, is the Pa amb Oli: Bread with olive oil, tomato, and any available condiments such as cheese, tunafish, etc.",
+   "score": "WER 26%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "पहाड़ी इलाकों में ज़्यादा दुर्घटना हुई. इसकी वजह आपसी दुश्मनी को माना जाता है.",
+   "model": "There were more accidents in the mountainous areas. The reason for this is thought to be mutual enmity.",
+   "correct": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+   "score": "chrF 27",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "புலியின் உறுமல், சிங்கத்தின் பெரிய கர்ஜனை போன்றதல்ல, கத்திப் பேசும்  வார்த்தைகள் கொண்ட உறுமலான சொற்றொடர் போன்றது.",
+   "model": "A tiger's tail is not like a lion's big tail, it's like a sharp phrase with sharp words.",
+   "correct": "The tiger's roar is not like the full-voiced roar of a lion, but more like a sentence of snarly, shouted words.",
+   "score": "chrF 29",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "সুতরাং, চিহ্নটি সম্ভবত যুক্ত করা হয়েছিল লেবেল হিসাবে।",
+   "model": "So, the mark was probably added as a label.",
+   "correct": "So, it is likely that the notation was added simply as a label.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "Do not deface the site by marking or scratching graffiti into structures.",
+   "model": "संरचनाओं में ग्राफिटी को चिह्नित या खरोंच करके साइट को खराब न करें।",
+   "correct": "चीज़ों पर कुछ बनाकर या खरोंच कर इस जगह को नुक़सान न पहुँचाएँ.",
+   "score": "chrF 24",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The number of people present was so large that it was not possible for everybody to gain access to the funeral in St. Peter's Square.",
+   "model": "செயின்ட் ஸ்டாண்டில் நடைபெற்ற இறுதிச் சடங்கில் அனைவரும் கலந்து கொள்ள இயலாத அளவுக்கு அதிகமானோர் கலந்து கொண்டனர். பீட்டர்ஸ் சதுக்கம்.",
+   "correct": "வருகை தந்திருந்த மக்களின் எண்ணிக்கை மிகவும் அதிகமாக இருந்த காரணத்தால், செயிண்ட். பீட்டர் ஸ்க்வயரில் அனைவருக்கும் இடம் கிடைப்பது சாத்தியமற்றதாக இருந்தது.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "Giancarlo Fisichella lost control of his car and ended the race very soon after the start.",
+   "model": "Giancarlo Fisichella তার গাড়ী নিয়ন্ত্রণ হারান এবং শুরু খুব শীঘ্রই দৌড় শেষ।",
+   "correct": "জিয়ানকার্লো ফিসিচেল্লা তার গাড়ির নিয়ন্ত্রণ হারিয়েছিল এবং প্রতিযোগিতা শুরুর পরপরই তা শেষ করে দিয়েছিলেন।",
+   "score": "chrF 24",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "मौजूद लोगों की संख्या इतनी बड़ी थी कि सेंट पीटर्स स्क्वायर में अंतिम संस्कार के लिए हर किसी के लिए पहुँच पाना मुमकिन नहीं था.",
+   "model": "செயின்ட் பீட்டர்ஸ் சதுக்கத்தில் இறுதிச் சடங்குக்கு அனைவரும் செல்ல முடியாத அளவுக்கு மக்கள் இருந்தனர்.",
+   "correct": "வருகை தந்திருந்த மக்களின் எண்ணிக்கை மிகவும் அதிகமாக இருந்த காரணத்தால், செயிண்ட். பீட்டர் ஸ்க்வயரில் அனைவருக்கும் இடம் கிடைப்பது சாத்தியமற்றதாக இருந்தது.",
+   "score": "chrF 27",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1736",
+   "model": "अगरोलेंगा मेरोजानाती आँ शिक्टेंगाईखा अगर पल पड़िप़गा अखर पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल पल �",
+   "correct": "रोलैंडो मेंडोज़ा ने अपनी M16 राइफल से पर्यटकों के ऊपर फायर किया।",
+   "score": "WER 1100%",
+   "why": "auto-guess: has numbers; extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1721",
+   "model": "ஆர்த்து தொல்லாய்ரத்து ருபத்து மூன்றில் அனைக்கட்டப்பட்டப் பிறகு ஆர்த்து முழுவதும் படிவுகளைப் பறவு வெல்லம் தடுக்கப்பட்டது. ஆர்த்து தொல்லாய்ரத்து மூன்றில் அனைக்கட்டப்பட்டப் பிறகு ஆர்த்து முழுவதும் படிவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பறவுகளைப் பற",
+   "correct": "1963 இல் அணை கட்டப்பட்ட பிறகு, ஆறு முழுவதும் படிவுகளைப் பரப்பும் பருவகால வெள்ளம் தடுக்கப்பட்டது.",
+   "score": "WER 425%",
+   "why": "auto-guess: has numbers; extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1801",
+   "model": "ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ ឍ",
+   "correct": "হংকং-এর আকাশরেখা ছুঁয়ে থাকা ইমারতগুলি ভিক্টোরিয়া হার্বারের জলে যেন চকমকে বার চার্টের মতো প্রতিচ্ছবি তৈরি করে।",
+   "score": "WER 871%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1737",
+   "model": "I enter the most social cat's living in large groups called Pride.",
+   "correct": "Lions are the most social cats, living in large groups called prides.",
+   "score": "WER 25%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "बाघ की दहाड़ किसी शेर की तेज़ आवाज़ वाली दहाड़ की तरह नहीं होती है, लेकिन उसकी बँधी हुई, चिल्लाने जैसी होती है.",
+   "model": "A tiger's roar is not like a lion's roar, but like a tied, screaming roar.",
+   "correct": "The tiger's roar is not like the full-voiced roar of a lion, but more like a sentence of snarly, shouted words.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "இந்த எதிர்ப்புகள் வெடித்தவுடன், பிரிட்டன் ஜெர்மனி மீது ஒரு கடற்படை முற்றுகையை ஆரம்பித்தது.",
+   "model": "As soon as these protests erupted, Britain began a naval siege on Germany.",
+   "correct": "Soon after the outbreak of hostilities, Britain initiated a naval blockade of Germany.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "গাছগুলি প্রাকৃতিক পরিবেশে় থাকাকালীন সবথেকে সুন্দর দেখায়, তাই \"মাত্র একটি\" নমুনা তোলার লোভ সংবরণ করুন।",
+   "model": "Trees look most beautiful in their natural surroundings, so encourage the desire to take \"just one\" sample.",
+   "correct": "Plants look their best when in a natural environment, so resist the temptation to remove even \"just one\" specimen.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "If you're not used to driving on country roads, keep your wits about you: steep grades, narrow lanes, and sharp curves predominate.",
+   "model": "यदि आप ग्रामीण सड़कों पर ड्राइविंग करने के लिए नहीं उपयोग करते हैं, तो अपने बारे में सावधान रहेंः खड़ी निशान, संकीर्ण लेन, और तेज वक्रों का वर्चस्व है।",
+   "correct": "यदि आपको देश की सड़कों पर वाहन चलाने की आदत नहीं है, तो अपने साथ यह जानकारी रखें : स्टीप ग्रेड्‍स, पतली गलियाँ और ख़तरनाक मोड़.",
+   "score": "chrF 27",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The cabbage juice changes color depending on how acidic or basic (alkaline) the chemical is.",
+   "model": "காய்கறி சாறு இரசாயனத்தின் அமிலம் அல்லது அடிப்படை (அல்கலினம்) அளவைப் பொறுத்து நிறம் மாறுகிறது.",
+   "correct": "முட்டைகோஸ் தனது சாறின் நிறத்தை எவ்வளவு அமிலத்தன்மை அல்லது காரத்தை பொறுத்து மாற்றுகிது.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "Its long jaws were studded with more than 70 razor-sharp teeth, along with an extra set in the roof of its mouth, meaning that there was no escape for anything that crossed its path.",
+   "model": "এর লম্বা চোয়ালগুলোতে ছিল ৭০ টিরও বেশি রাইজার মতো ধারালো দাঁত, এবং এর মুখের ছাদে একটি অতিরিক্ত সেট ছিল, যার অর্থ হল যে কোন কিছু তার পথ অতিক্রম করতে পারেনি।",
+   "correct": "এর দীর্ঘ চোয়ালগুলি খচিত ছিল সত্তর-এর ( 70 ) থেকে বেশি ক্ষুর তীব্র দাঁত দিয়ে, এরই সঙ্গে ছিল মুখগহবরের উপরের দিকে একটি অতিরিক্ত সেট, মানে যা কিছু এর রাস্তায় পড়ত তার কোনো রেহাই ছিল না।",
+   "score": "chrF 27",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "बाघ की दहाड़ किसी शेर की तेज़ आवाज़ वाली दहाड़ की तरह नहीं होती है, लेकिन उसकी बँधी हुई, चिल्लाने जैसी होती है.",
+   "model": "புலிகளின் கூக்குரல் ஒரு சிங்கத்தின் கூக்குரலைப் போன்றது அல்ல, ஆனால் அதன் கூக்குரலைப் போன்றது.",
+   "correct": "புலியின் உறுமல், சிங்கத்தின் பெரிய கர்ஜனை போன்றதல்ல, கத்திப் பேசும்  வார்த்தைகள் கொண்ட உறுமலான சொற்றொடர் போன்றது.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1721",
+   "model": "अगर तो बद्बाद बाद बद्बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद बाद �",
+   "correct": "1963 में बाँध बनने के बाद, मौसमी बाढ़ जो पूरे नदी में तलछट फैला देगी वह रुक गई थी.",
+   "score": "WER 453%",
+   "why": "auto-guess: has numbers; extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1746",
+   "model": "தாவரங்கள் உளிச்சிரக்கை மூலம் சூரியனிடம் இருந்து தங்கள் உணவை உருவாக்குக் கிட்டன Thaverangal, Olycheraki and Olycherkymoolam, Surya Nidham, Suryanidam, Suryanidam, Yudhudam, and Uruvakky, are the best friends of the Sun and the Sun and the Sun, and the Sun are the best friends of the Sun and the Sun.",
+   "correct": "தாவரங்கள் ஒளிச்சேர்க்கை மூலம் சூரியனிடம் இருந்து தங்கள் உணவை உருவாக்குகின்றன. அவை நிழலையும் வழங்குகின்றன.",
+   "score": "WER 364%",
+   "why": "auto-guess: extra or made-up words"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1742",
+   "model": "ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ ḍ",
+   "correct": "হংকং দ্বীপের নামে হংকংয়ের এই অঞ্চলটির নামকরণ এবং এই স্থানটি অনেক পর্যটকের প্রধান লক্ষ্য হিসাবে বিবেচনা হয়ে থাকে।",
+   "score": "WER 822%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1872",
+   "model": "During the struggle for independence organized by the Mao movement, a peaceful gathering in the town resulted in the killing of Paramat Chief Tuba Tupisiya III.",
+   "correct": "During the struggle for independence organised by the Mau movement, a peaceful gathering in the town resulted in the killing of the paramount chief Tupua Tamasese Lealofi III.",
+   "score": "WER 25%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "जितनी कम चिंता, उतनी ज़्यादा सकारात्मक जीवन ऊर्जा का संचार. हर इंसान परम शांति और संतोष पा सकता है.",
+   "model": "The less anxiety, the more positive life energy communication. Every human being can find the ultimate peace and satisfaction.",
+   "correct": "The lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "இது சந்திரனின் மேற்பரப்பில் கணிசமான அளவிலான இருண்ட பகுதியின் கீழ் மெல்லியதாகவும், மேட்டுநிலங்களின் கீழ் தடிமனாகவும் உள்ளது.",
+   "model": "It is thin beneath a substantial amount of dark area on the Moon's surface and thick beneath the plateaus.",
+   "correct": "It is thinner under the maria and thicker under the highlands.",
+   "score": "chrF 31",
+   "why": "auto-guess: extra or made-up words"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "মারাত্মক আবহাওয়া হল কোনও বিপজ্জনক আবহাওয়া ঘটনার যেমন ক্ষয়ক্ষতি, মারাত্মক সামাজিক বিপর্যয় বা মানবজীবনে প্রাণহানীর মত ঘটনার সাধারণ পরিভাষা।",
+   "model": "A catastrophic weather event is a general term for a catastrophic weather event such as a loss of life, a catastrophic social disaster or a loss of life.",
+   "correct": "Severe weather is the generic term for any dangerous weather phenomenon with the potential to cause damage, serious social disruption, or loss of human life.",
+   "score": "chrF 34",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "By 1976, thirty percent of Machu Picchu had been restored and restoration continues till today.",
+   "model": "1976 तक मचू पिक्चू का तीस प्रतिशत क्षेत्र बहाल हो चुका था और आज भी बहाल किया जा रहा है।",
+   "correct": "सन 1976 तक माचू पिचू के तीस प्रतिशत हिस्से का जीर्णोद्धार कर दिया गया था और जीर्णोद्धार का कार्य आज तक जारी है।",
+   "score": "chrF 29",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+   "model": "இந்த விபத்து மலை நிலப்பரப்பில் ஏற்பட்டது, இது எதிரிகளின் துப்பாக்கியால் ஏற்பட்டதாக நம்பப்படுகிறது.",
+   "correct": "மலைகளில் உயரமான இடத்தில் இந்த விபத்து நிகழ்ந்ததாகவும், இது பகைவர்கள் வைத்த தீயாக இருக்கலாம் என்றும் நம்பப்படுகிறது.",
+   "score": "chrF 35",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "If you're not used to driving on country roads, keep your wits about you: steep grades, narrow lanes, and sharp curves predominate.",
+   "model": "আপনি যদি গ্রামীণ সড়কগুলিতে গাড়ি চালাতে অভ্যস্ত না হন তবে আপনার সম্পর্কে সতর্ক থাকুনঃ তীব্র গ্রেড, সংকীর্ণ সড়ক এবং ধারালো বক্ররেখা প্রাধান্য দেয়।",
+   "correct": "যদি তুমি গ্রাম্য রাস্তায় গাড়ি চালানোয় অভ্যস্থ না থাকো, বুদ্ধি দিয়ে কাজ করো: খাড়া ঢাল, সরু গলি, এবং তীব্র বাঁক প্রাধান্য পায়।",
+   "score": "chrF 28",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "चीज़ों पर कुछ बनाकर या खरोंच कर इस जगह को नुक़सान न पहुँचाएँ.",
+   "model": "பொருட்களை உருவாக்குவதன் மூலமோ அல்லது இழுப்பதன் மூலமோ இந்த இடத்தை சேதப்படுத்தாதீர்கள்.",
+   "correct": "கிராஃபிட்டி கட்டமைப்புகளில் குறிப்பதன் மூலமாகவோ அல்லது கீருவதன் மூலமாகவோ தளத்தின் அழகை கெடுக்க வேண்டாம்.",
+   "score": "chrF 32",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1820",
+   "model": "लोग आप ख़ब ख़ब श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वाद श्वा�",
+   "correct": "लोग अब कंप्यूटर स्क्रीन पर संदेश लिखते हैं, शार्पनर का उपयोग करने की आवश्यकता नहीं पड़ती।",
+   "score": "WER 350%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1869",
+   "model": "அதன் நீந்த தாடைகளில் எலுவதுக்கும் மேற்பத்த கற்றிப் போன்ற குருமையான பற்களுடன் அதன் வாயில் மேற்பதில் ஒரு கூடுதல் பற்களின் அமைப்பு உள்ளது அதன் பாதையில் யாராவது குறிக்கிற்றுவால் அதன் இடமிருந்து தப்பிக்க முடியாது என்பதை இதன் புரல் அதன் நீந்த தாடைகளில் எலுவதுக்கும் மேற்பத்த கற்றிப் போன்ற குறுமையான பற்களுடன் அதன் வாயில் மேற்பதில் ஒரு கூடுதல் பற்களின் அமைப்பு உள்ளது அதன் வாயில் யாராவது குறிக்கிற்றுவால் அதன் இடமிருந்து தப்பிக்க முடியாது என்பதை",
+   "correct": "அதன் நீண்ட தாடைகளில் 70 க்கும் மேற்பட்ட கத்தி போன்ற-கூர்மையான பற்களுடன் அதன் வாயில் மேற்பகுதியில் ஒரு கூடுதல் பற்களின் அமைப்பு உள்ளது, அதன் பாதையில் யாராவது குறுக்கிட்டால் அதனிடமிருந்து தப்பிக்க முடியாது என்பதே இதன் பொருள்.",
+   "score": "WER 136%",
+   "why": "auto-guess: has numbers; extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1846",
+   "model": "शवाई आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आप आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� आ� �",
+   "correct": "সেই কারণে এই বিন্যাসটির আনুমানিক অনুপাত (১২ দিয়ে ভাগ করে সহজ পূর্ন -সংখ্যার গাণিতিক অনুপাত পাওয়া যায়) ধরা হয় ৩ঃ২।",
+   "score": "WER 655%",
+   "why": "auto-guess: has numbers; extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1753",
+   "model": "While it is often an inaccurate stereotype, the best way to get along in Paris is to still be on your best behavior, acting like somebody who is beyond ill-being, well brought up. It would make getting around about considerably easier.",
+   "correct": "While this is often only an inaccurate stereotype, the best way to get along in Paris still is to be on your best behavior, acting like someone who is \"bien élevé\" (well brought up). It will make getting about considerably easier.",
+   "score": "WER 24%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "इसी तरह, पुरुषों के लिए घुटनों को ढँकने वाले ट्राउज़र पहनना ज़रूरी है.",
+   "model": "Similarly, it is essential for men to wear trousers that cover their knees.",
+   "correct": "Along the same line, men are required to wear trousers covering the knees.",
+   "score": "chrF 39",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "நோயாளிகளை தனிமைப்படுத்தி நோய் பரவாமல் பாதுகாப்பதில் இருந்து அனைத்து நெறிமுறைகளையும் அந்த மருத்துவமனை பின்பற்றியது.",
+   "model": "The hospital followed all protocols to isolate patients and prevent the spread of disease.",
+   "correct": "The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+   "score": "chrF 33",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "সেই কারণে এই বিন্যাসটির আনুমানিক অনুপাত (১২ দিয়ে ভাগ করে সহজ পূর্ন -সংখ্যার গাণিতিক অনুপাত পাওয়া যায়) ধরা হয় ৩ঃ২।",
+   "model": "Therefore, the approximate ratio of this sequence (a mathematical ratio of simple integers divided by 12) is 3:2.",
+   "correct": "The aspect ratio of this format (dividing by twelve to obtain the simplest whole-number ratio) is therefore said to be 3:2.",
+   "score": "chrF 35",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "The tiger's roar is not like the full-voiced roar of a lion, but more like a sentence of snarly, shouted words.",
+   "model": "बाघ की गर्जना शेर की गर्जना की तरह नहीं है, बल्कि एक शोरगर, चिल्लाने वाले शब्दों की तरह है।",
+   "correct": "बाघ की दहाड़ किसी शेर की तेज़ आवाज़ वाली दहाड़ की तरह नहीं होती है, लेकिन उसकी बँधी हुई, चिल्लाने जैसी होती है.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The word civilization comes from the Latin civilis, meaning civil, related to the Latin civis, meaning citizen, and civitas, meaning city or city-state, and that also somehow defines the size of the society.",
+   "model": "நாகரிகம் என்ற சொல் லத்தீன் civilis, அதாவது சிவில், லத்தீன் civis, அதாவது குடிமகன், மற்றும் civitas, அதாவது நகரம் அல்லது நகரம்-மாநிலம் ஆகியவற்றிலிருந்து வந்தது, மேலும் இது சமூகத்தின் அளவை ஒருவிதமாக வரையறுக்கிறது.",
+   "correct": "சிவிலிசேஷன் என்ற வார்த்தை, சிவில் என்று பொருள் படும் லத்தீன் சிவிலிஸ் மற்றும் சிடிஜென் என்று பொருள் படும் சிவிஸ் மற்றும் நாடு அல்லது நாட்டின் மாகாணம் என்று பொருள்படும் சிவிடாஸ் ஆகியவற்றிலிருந்து வந்தது மற்றும் அது எப்படியோ சமூகத்தின் அளவையும் வரையறுக்கிறது.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "Just like the moon exerts a pull on the earth, causing tides, so does the Milky Way exert a force on the Sagittarius galaxy.",
+   "model": "চাঁদ পৃথিবীকে টানতে পারে এবং জলপ্রবাহ সৃষ্টি করে, তাই ম্যালাক্সি ওয়েও ধাঁধার গ্যালাক্সির উপর একটি শক্তি প্রয়োগ করে।",
+   "correct": "চাঁদ যেমন পৃথিবীতে একটি টান প্রয়োগ করে যার ফলে জোয়ারের সৃষ্টি হয়, তেমনি আকাশগঙ্গাও সাগিটারিয়াস ছায়াপথের উপরে একটি চাপ প্রয়োগ করে।",
+   "score": "chrF 29",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "गोभी का जूस अम्लीय या आधारभूत (क्षारीय) रसायन के आधार पर रंग बदलता है.",
+   "model": "தேங்காய் சாறு அமில அல்லது அடிப்படை இரசாயனத்தின் அடிப்படையில் நிறத்தை மாற்றுகிறது.",
+   "correct": "முட்டைகோஸ் தனது சாறின் நிறத்தை எவ்வளவு அமிலத்தன்மை அல்லது காரத்தை பொறுத்து மாற்றுகிது.",
+   "score": "chrF 32",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1807",
+   "model": "अदिकान स्लोग उप्योग में लातें का दार्मिक रस्मों में इस्तिमाल किया जाहता है अदिकान स्लोग उप्योग में लातें है जब की लेटिन का दार्मिक रस्मों में इस्तिमाल किया जाहता है अदिकान स्लोग उप्योग में लातें है जब की लेटिन का दार्मिक रस्मों में इस्तिमाल किया जाहता है अदिकान स्लोग लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का लेडिन का �",
+   "correct": "इटैलियन भी रोज़ाना इस्तेमाल होने वाली भाषा है जिसे राज्य में काम करने वाले अधिकांश लोग उपयोग में लाते हैं, जबकि लेटिन का धार्मिक रस्मों में इस्तेमाल किया जाता है.",
+   "score": "WER 267%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1679",
+   "model": "ஏராவஸ்மித் தவற்குள் என் சுற்று பெயர்ந்தில் மீதம் விழிச்சியை நிகழ்ச்சிக்கில் இராத்துச் சீதார்.",
+   "correct": "ஏரோஸ்மித், அவர்களின் சுற்றுப்பயணத்தில் மீதமுள்ள இசை நிகழ்ச்சிகளை ரத்து செய்தார்.",
+   "score": "WER 125%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1714",
+   "model": "Satellite నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిని నినిన�",
+   "correct": "স্যাটেলাইটটি একটি রকেটের মাধ্যমে মহাকাশে প্রেরণ করা হয়েছিল। বিজ্ঞানীরা মহাকাশে টেলিস্কোপ ব্যবহার করেন কারণ পৃথিবীর বায়ুমণ্ডল আমাদের কিছু আলো এবং দৃশ্যের পরিবর্তন করে।",
+   "score": "WER 152%",
+   "why": "auto-guess: repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1838",
+   "model": "The Great Pyramid Aguiza is one of the seven wonders that is still standing today.",
+   "correct": "The Great Pyramid at Giza is the only one of the seven wonders that is still standing today.",
+   "score": "WER 22%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "चीज़ों पर कुछ बनाकर या खरोंच कर इस जगह को नुक़सान न पहुँचाएँ.",
+   "model": "Do not damage this place by making or scratching things.",
+   "correct": "Do not deface the site by marking or scratching graffiti into structures.",
+   "score": "chrF 41",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "எனவே, இக்குறியிடல் வெறுமனே ஒரு லேபிளாகச் சேர்க்கப்பட்டிருக்கலாம்.",
+   "model": "So, the tag could have simply been added as a label.",
+   "correct": "So, it is likely that the notation was added simply as a label.",
+   "score": "chrF 34",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "কাঠামোতে গ্রাফিতি বা অন্য কিছু একে জায়গাটির সৌন্দর্য নষ্ট করবেন না।",
+   "model": "Don't let graffiti or anything else in the structure ruin the beauty of the place.",
+   "correct": "Do not deface the site by marking or scratching graffiti into structures.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+   "model": "हादसा पहाड़ी इलाके में हुआ और माना जाता है कि यह शत्रुतापूर्ण आग का परिणाम था।",
+   "correct": "पहाड़ी इलाकों में ज़्यादा दुर्घटना हुई. इसकी वजह आपसी दुश्मनी को माना जाता है.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The work done was mostly theoretical, but the program was written to simulate observations made of the Sagittarius galaxy.",
+   "model": "செய்த பணி பெரும்பாலும் தத்துவார்த்தமானது, ஆனால் Sagittarius கேலக்ஸியைப் பற்றிய கண்காணிப்புகளை உருவகப்படுத்துவதற்காக இந்த திட்டம் எழுதப்பட்டது.",
+   "correct": "கோட்பாட்டை அடிப்படையாகக் கொண்ட வேலைகள் மட்டுமே பெரும்பாலும் முடிக்கப்பட்டுள்ளன. ஆனால் இந்த திட்டம் தனுசு விண்மீனை கண்காணிக்க துண்டுதலாக எழுதப்பட்டது.",
+   "score": "chrF 37",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "According to Japan's nuclear agency, radioactive caesium and iodine has been identified at the plant.",
+   "model": "জাপানের পারমাণবিক সংস্থার মতে, এই কারখানায় রেডিয়েকটিভ কেসিয়াম ও আইডিন সনাক্ত করা হয়েছে।",
+   "correct": "জাপানের পারমানবিক সংস্থার সূত্রে জানা গিয়েছে, প্ল্যান্টটিতে তেজস্ক্রিয় সিজিয়াম এবং আয়োডিন চিহ্নিত করা হয়েছে।",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "लीक के अनुसार, दस्तावेज़, सीमा विवाद को संदर्भित करेगा, जो फ़िलिस्तीन 1967 के मध्यपूर्व युद्ध से पहले सीमाओं के आधार पर चाहता है.",
+   "model": "1967 மத்திய கிழக்கு போருக்கு முன்னர் பாலஸ்தீனம் விரும்பிய எல்லை சர்ச்சையை இந்த ஆவணம் குறிக்கும் என்று கசிவு தெரிவிக்கிறது.",
+   "correct": "வெளிவந்த இரகசிய செய்தியின்படி, ஆவணம், பாலஸ்தீனம் 1967இல் நடந்த மத்தியக் கிழக்கு போரின் போது இருந்த எல்லையை உரிமை கொண்டாடுவதைக் குறித்த எல்லை முரண்பாடு குறித்ததாக இருக்கும்.",
+   "score": "chrF 33",
+   "why": "auto-guess: has numbers"
+  }
+ ],
+ "asr_compare_model": "openai/whisper-large-v3"
+}

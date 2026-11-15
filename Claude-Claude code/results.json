@@ -1,0 +1,869 @@
+{
+ "generated": "2026-11-14T20:15:13Z",
+ "models": {
+  "core": "0.1.0",
+  "asr_model": "openai/whisper-large-v3",
+  "mt_model": "facebook/nllb-200-distilled-600M",
+  "tts_model": "facebook/mms-tts-<lang>",
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "warmup_s": 174.7
+ },
+ "sentences_per_language": 100,
+ "quick_test": false,
+ "asr": {
+  "hi": {
+   "wer": 0.2912,
+   "cer": 0.1052,
+   "wer_auto": 0.3972,
+   "wer_room": 0.292,
+   "lang_right_auto": 0.84,
+   "lang_right_room": 0.99,
+   "n": 100,
+   "wer_compare": 0.7768,
+   "cer_compare": 0.476
+  },
+  "ta": {
+   "wer": 0.4854,
+   "cer": 0.1334,
+   "wer_auto": 0.5218,
+   "wer_room": 0.4854,
+   "lang_right_auto": 0.9,
+   "lang_right_room": 1.0,
+   "n": 100,
+   "wer_compare": 0.7585,
+   "cer_compare": 0.2826
+  },
+  "bn": {
+   "wer": 0.8415,
+   "cer": 0.3049,
+   "wer_auto": 0.8415,
+   "wer_room": 0.8415,
+   "lang_right_auto": 1.0,
+   "lang_right_room": 1.0,
+   "n": 100,
+   "wer_compare": 1.3055,
+   "cer_compare": 1.3261
+  },
+  "en": {
+   "wer": 0.0446,
+   "cer": 0.0225,
+   "wer_auto": 0.0446,
+   "wer_room": 0.0446,
+   "lang_right_auto": 1.0,
+   "lang_right_room": 1.0,
+   "n": 100,
+   "wer_compare": 0.0599,
+   "cer_compare": 0.0287
+  },
+  "hinglish": {
+   "wer": null,
+   "n": 36,
+   "note": "No WER: we wrote Hinglish in Latin letters and Whisper writes Devanagari, so word matching would be unfair."
+  }
+ },
+ "mt": {
+  "hi-en": {
+   "copy": {
+    "chrf": 0.64,
+    "ci": [
+     0.47,
+     0.89
+    ]
+   },
+   "nllb": {
+    "chrf": 64.03,
+    "ci": [
+     61.14,
+     66.79
+    ]
+   },
+   "n": 100
+  },
+  "ta-en": {
+   "copy": {
+    "chrf": 0.6,
+    "ci": [
+     0.47,
+     0.8
+    ]
+   },
+   "nllb": {
+    "chrf": 57.58,
+    "ci": [
+     54.95,
+     60.35
+    ]
+   },
+   "n": 100
+  },
+  "bn-en": {
+   "copy": {
+    "chrf": 0.5,
+    "ci": [
+     0.29,
+     0.84
+    ]
+   },
+   "nllb": {
+    "chrf": 59.05,
+    "ci": [
+     55.08,
+     62.3
+    ]
+   },
+   "n": 100
+  },
+  "en-hi": {
+   "copy": {
+    "chrf": 0.67,
+    "ci": [
+     0.49,
+     0.92
+    ]
+   },
+   "nllb": {
+    "chrf": 56.8,
+    "ci": [
+     54.07,
+     59.46
+    ]
+   },
+   "n": 100
+  },
+  "en-ta": {
+   "copy": {
+    "chrf": 0.53,
+    "ci": [
+     0.42,
+     0.72
+    ]
+   },
+   "nllb": {
+    "chrf": 56.33,
+    "ci": [
+     53.85,
+     58.88
+    ]
+   },
+   "n": 100
+  },
+  "en-bn": {
+   "copy": {
+    "chrf": 0.51,
+    "ci": [
+     0.29,
+     0.87
+    ]
+   },
+   "nllb": {
+    "chrf": 49.23,
+    "ci": [
+     46.55,
+     51.89
+    ]
+   },
+   "n": 100
+  },
+  "hi-ta": {
+   "copy": {
+    "chrf": 0.48,
+    "ci": [
+     0.34,
+     0.72
+    ]
+   },
+   "nllb": {
+    "chrf": 52.7,
+    "ci": [
+     50.76,
+     55.01
+    ]
+   },
+   "n": 100
+  }
+ },
+ "s2t": {
+  "hi-en": {
+   "Perfect transcript → NLLB": 64.03,
+   "Whisper → NLLB": 55.42,
+   "Whisper translates directly": 48.76
+  },
+  "en-hi": {
+   "Perfect transcript → NLLB": 56.8,
+   "Whisper → NLLB": 54.07
+  },
+  "ta-en": {
+   "Perfect transcript → NLLB": 57.58,
+   "Whisper → NLLB": 42.5,
+   "Whisper translates directly": 27.34
+  },
+  "en-ta": {
+   "Perfect transcript → NLLB": 56.33,
+   "Whisper → NLLB": 54.49
+  },
+  "bn-en": {
+   "Perfect transcript → NLLB": 59.05,
+   "Whisper → NLLB": 35.51,
+   "Whisper translates directly": 34.77
+  },
+  "en-bn": {
+   "Perfect transcript → NLLB": 49.23,
+   "Whisper → NLLB": 48.51
+  }
+ },
+ "latencyMs": {
+  "asr": 4247,
+  "mt": 1155,
+  "tts": 408,
+  "total": 5865,
+  "note": "median computing time: one Hindi speaker, English and Tamil listeners"
+ },
+ "worst": [
+  {
+   "task": "hinglish",
+   "lang": "hinglish",
+   "input": "Bhai, scene ye hai ki kal subah 7 baje niklenge warna jam mein phans jayenge.",
+   "model": "Brother Seen is going to go out tomorrow morning or get stuck in a jam.",
+   "correct": "Bro, the situation is that we'll leave at 7 AM tomorrow or else we'll get stuck in a traffic jam.",
+   "score": "chrF 29",
+   "heard": "भाई सीन ये है कि कल सुबह साथ बजे निकलेंगे वरना जाम में फ़स जाएंगे।",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "hinglish",
+   "lang": "hinglish",
+   "input": "Ek kaam kar, 1,500 rupees Paytm kar de, baaki hisaab baad mein settle karenge.",
+   "model": "Do one job, pay Rs 1500 Paytm, the rest will be settled later.",
+   "correct": "Do one thing, Paytm me 1,500 rupees, we'll settle the rest of the account later.",
+   "score": "chrF 32",
+   "heard": "एक काम कर, 1500 रुपे Paytm कर दे, बाकी हिसाब बाद में सेटल करेंगे।",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "hinglish",
+   "lang": "hinglish",
+   "input": "Bhai, bill split kar lete hain, per head 350 rupaye padega.",
+   "model": "Brother, split the bill, but the head will cost Rs 350.",
+   "correct": "Bro, let's split the bill, it'll come to 350 rupees per person.",
+   "score": "chrF 34",
+   "heard": "भाई, बिल स्प्लिट कर लेते हैं, पर हेड 350 रुपे पड़ेगा।",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "hinglish",
+   "lang": "hinglish",
+   "input": "Mujhe headache ho raha hai subah se.",
+   "model": "I'm getting a headache from Subhai.",
+   "correct": "I have been having a headache since morning.",
+   "score": "chrF 34",
+   "heard": "मुझे हेडेक हो रहा है सुभाई से।",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "hinglish",
+   "lang": "hinglish",
+   "input": "Ek kaam kar, 1,500 rupees Paytm kar de, baaki hisaab baad mein settle karenge.",
+   "model": "Do one job, pay 1500 rupees, the rest will be settled later.",
+   "correct": "Do one thing, Paytm me 1,500 rupees, we'll settle the rest of the account later.",
+   "score": "chrF 39",
+   "heard": "एक काम कर, 1500 रुपे पेटियन कर दे, बाकी हिसाब बाद में सेटल करेंगे.",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1736",
+   "model": "कुब लेंगे मिर्द जनाति में 16 वाइफा पर ले टोको दे विश्वाद पर लेती है",
+   "correct": "रोलैंडो मेंडोज़ा ने अपनी M16 राइफल से पर्यटकों के ऊपर फायर किया।",
+   "score": "WER 125%",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1847",
+   "model": "அவரை சிங்கப்பூர் துனைப் பிரதமர் ஓங்காங் செங் வரவேற்றார். மேலும் வர்த்தகம் மற்றும் பயங்கரவாத பிரச்சனைகள் குறித்து சிங்கப்பூர் பிரதமர் லீக் சியன் லூம்குடன் உரையாடல் நிகழ்த்தினார். அவரை சிங்கப்பூர் துனைப் பிரதமர் ஓங்காங் செங் வரவேற்றார். மேலும் வர்த்தகம் மற்றும் பயங்கரவாத பிரச்சனைகள் குறித்து சிங்கப்பூர் பிரதமர் லீக் சியன் லூம்குடன் உரையாடல் நிகழ்த்தினார்.",
+   "correct": "அவரை சிங்கப்பூர் துணைப் பிரதமர் வோங் கான் செங் வரவேற்றார், மேலும், வர்த்தக மற்றும் பயங்கரவாத பிரச்சினைகள் குறித்து சிங்கப்பூர் பிரதமர் லீ ஹ்சியன் லூங்குடன் உரையாடல் நிகழ்த்தினார்.",
+   "score": "WER 129%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1789",
+   "model": "Unn-un-n-manunn-nay-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n-n",
+   "correct": "অন্যান্য মনোনয়নের মধ্যে রয়েছে সেরা ছবি, পরিচালক, সিনেমাটোগ্রাফি, কস্টিউম ডিজাইন, চলচ্চিত্র-সম্পাদনা, অরিজিনাল স্কোর, প্রোডাকশন ডিজাইন, শব্দ সম্পাদনা, সাউন্ড মিক্সিং এবং মূল চিত্রনাট্য।",
+   "score": "WER 961%",
+   "why": "auto-guess: extra or made-up words; repeats itself"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1860",
+   "model": "The Governor's Office sent 19 of the injured with police officers.",
+   "correct": "The governor's office said nineteen of the injured were police officers.",
+   "score": "WER 27%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "पहाड़ी इलाकों में ज़्यादा दुर्घटना हुई. इसकी वजह आपसी दुश्मनी को माना जाता है.",
+   "model": "There were more accidents in the mountainous areas. The reason for this is thought to be mutual enmity.",
+   "correct": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+   "score": "chrF 27",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "புலியின் உறுமல், சிங்கத்தின் பெரிய கர்ஜனை போன்றதல்ல, கத்திப் பேசும்  வார்த்தைகள் கொண்ட உறுமலான சொற்றொடர் போன்றது.",
+   "model": "A tiger's tail is not like a lion's big tail, it's like a sharp phrase with sharp words.",
+   "correct": "The tiger's roar is not like the full-voiced roar of a lion, but more like a sentence of snarly, shouted words.",
+   "score": "chrF 29",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "সুতরাং, চিহ্নটি সম্ভবত যুক্ত করা হয়েছিল লেবেল হিসাবে।",
+   "model": "So, the mark was probably added as a label.",
+   "correct": "So, it is likely that the notation was added simply as a label.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "Do not deface the site by marking or scratching graffiti into structures.",
+   "model": "संरचनाओं में ग्राफिटी को चिह्नित या खरोंच करके साइट को खराब न करें।",
+   "correct": "चीज़ों पर कुछ बनाकर या खरोंच कर इस जगह को नुक़सान न पहुँचाएँ.",
+   "score": "chrF 24",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The number of people present was so large that it was not possible for everybody to gain access to the funeral in St. Peter's Square.",
+   "model": "செயின்ட் ஸ்டாண்டில் நடைபெற்ற இறுதிச் சடங்கில் அனைவரும் கலந்து கொள்ள இயலாத அளவுக்கு அதிகமானோர் கலந்து கொண்டனர். பீட்டர்ஸ் சதுக்கம்.",
+   "correct": "வருகை தந்திருந்த மக்களின் எண்ணிக்கை மிகவும் அதிகமாக இருந்த காரணத்தால், செயிண்ட். பீட்டர் ஸ்க்வயரில் அனைவருக்கும் இடம் கிடைப்பது சாத்தியமற்றதாக இருந்தது.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "Giancarlo Fisichella lost control of his car and ended the race very soon after the start.",
+   "model": "Giancarlo Fisichella তার গাড়ী নিয়ন্ত্রণ হারান এবং শুরু খুব শীঘ্রই দৌড় শেষ।",
+   "correct": "জিয়ানকার্লো ফিসিচেল্লা তার গাড়ির নিয়ন্ত্রণ হারিয়েছিল এবং প্রতিযোগিতা শুরুর পরপরই তা শেষ করে দিয়েছিলেন।",
+   "score": "chrF 24",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "मौजूद लोगों की संख्या इतनी बड़ी थी कि सेंट पीटर्स स्क्वायर में अंतिम संस्कार के लिए हर किसी के लिए पहुँच पाना मुमकिन नहीं था.",
+   "model": "செயின்ட் பீட்டர்ஸ் சதுக்கத்தில் இறுதிச் சடங்குக்கு அனைவரும் செல்ல முடியாத அளவுக்கு மக்கள் இருந்தனர்.",
+   "correct": "வருகை தந்திருந்த மக்களின் எண்ணிக்கை மிகவும் அதிகமாக இருந்த காரணத்தால், செயிண்ட். பீட்டர் ஸ்க்வயரில் அனைவருக்கும் இடம் கிடைப்பது சாத்தியமற்றதாக இருந்தது.",
+   "score": "chrF 27",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1832",
+   "model": "लोग प्रिय खेलों में फूट बॉल, बास्केट बॉल, वॉली बॉल, वाटर पोलो, तलवार बाजी, रब्बी, साइकलिंग, आईस होकी, रोलर होकी और F1 मोटर रेसिंग सामिल है",
+   "correct": "लोकप्रिय खेलों में फ़ुटबॉल, बास्केटबॉल, वॉलीबॉल, वाटर पोलो, तलवारबाज़ी, रग्बी, साइकिलिंग, आइस हॉकी, रोलर हॉकी और एफ़ 1 मोटर रेसिंग शामिल हैं.",
+   "score": "WER 86%",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1692",
+   "model": "ஜபானின் அனுசக்தி முகவான்மையின் படி ஆளையில் கதிரியைக்க சீசியம் மற்றும் ஐயோடின் கதிரியைப்பட்டது இது.",
+   "correct": "ஜப்பானின் அணுசக்தி முகவாண்மையின்படி ஆலையில், கதிரியக்க சீசியம் மற்றும் அயோடின் கண்டறியப்பட்டுள்ளது.",
+   "score": "WER 100%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1912",
+   "model": "বেশীর্ভাক্র ছোটো দিপোন্যো বোলি হলো সাদিন রাস্ট্র অতোয়া ফ্রাংসেস সাথে সম্পর কিতো এবং এগোলো বিলাশ্বহুল সমদ্র তিরো বর্তি জিসোট হিশেবে পরিছিতো।",
+   "correct": "বেশিরভাগ ছোট দ্বীপপুঞ্জগুলি হল স্বাধীন রাষ্ট্র, অথবা ফ্রান্সের সাথে সম্পর্কিত, এবং এগুলো বিলাসবহুল সমুদ্রতীরবর্তী রিসোর্ট হিসেবে পরিচিত।",
+   "score": "WER 112%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1872",
+   "model": "During the struggle for independence organized by the Mao movement, a peaceful gathering in the town resulted in the killing of Paramount Chief Tuba Tuba Siay Le III.",
+   "correct": "During the struggle for independence organised by the Mau movement, a peaceful gathering in the town resulted in the killing of the paramount chief Tupua Tamasese Lealofi III.",
+   "score": "WER 25%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "बाघ की दहाड़ किसी शेर की तेज़ आवाज़ वाली दहाड़ की तरह नहीं होती है, लेकिन उसकी बँधी हुई, चिल्लाने जैसी होती है.",
+   "model": "A tiger's roar is not like a lion's roar, but like a tied, screaming roar.",
+   "correct": "The tiger's roar is not like the full-voiced roar of a lion, but more like a sentence of snarly, shouted words.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "இந்த எதிர்ப்புகள் வெடித்தவுடன், பிரிட்டன் ஜெர்மனி மீது ஒரு கடற்படை முற்றுகையை ஆரம்பித்தது.",
+   "model": "As soon as these protests erupted, Britain began a naval siege on Germany.",
+   "correct": "Soon after the outbreak of hostilities, Britain initiated a naval blockade of Germany.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "গাছগুলি প্রাকৃতিক পরিবেশে় থাকাকালীন সবথেকে সুন্দর দেখায়, তাই \"মাত্র একটি\" নমুনা তোলার লোভ সংবরণ করুন।",
+   "model": "Trees look most beautiful in their natural surroundings, so encourage the desire to take \"just one\" sample.",
+   "correct": "Plants look their best when in a natural environment, so resist the temptation to remove even \"just one\" specimen.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "If you're not used to driving on country roads, keep your wits about you: steep grades, narrow lanes, and sharp curves predominate.",
+   "model": "यदि आप ग्रामीण सड़कों पर ड्राइविंग करने के लिए नहीं उपयोग करते हैं, तो अपने बारे में सावधान रहेंः खड़ी निशान, संकीर्ण लेन, और तेज वक्रों का वर्चस्व है।",
+   "correct": "यदि आपको देश की सड़कों पर वाहन चलाने की आदत नहीं है, तो अपने साथ यह जानकारी रखें : स्टीप ग्रेड्‍स, पतली गलियाँ और ख़तरनाक मोड़.",
+   "score": "chrF 27",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The cabbage juice changes color depending on how acidic or basic (alkaline) the chemical is.",
+   "model": "காய்கறி சாறு இரசாயனத்தின் அமிலம் அல்லது அடிப்படை (அல்கலினம்) அளவைப் பொறுத்து நிறம் மாறுகிறது.",
+   "correct": "முட்டைகோஸ் தனது சாறின் நிறத்தை எவ்வளவு அமிலத்தன்மை அல்லது காரத்தை பொறுத்து மாற்றுகிது.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "Its long jaws were studded with more than 70 razor-sharp teeth, along with an extra set in the roof of its mouth, meaning that there was no escape for anything that crossed its path.",
+   "model": "এর লম্বা চোয়ালগুলোতে ছিল ৭০ টিরও বেশি রাইজার মতো ধারালো দাঁত, এবং এর মুখের ছাদে একটি অতিরিক্ত সেট ছিল, যার অর্থ হল যে কোন কিছু তার পথ অতিক্রম করতে পারেনি।",
+   "correct": "এর দীর্ঘ চোয়ালগুলি খচিত ছিল সত্তর-এর ( 70 ) থেকে বেশি ক্ষুর তীব্র দাঁত দিয়ে, এরই সঙ্গে ছিল মুখগহবরের উপরের দিকে একটি অতিরিক্ত সেট, মানে যা কিছু এর রাস্তায় পড়ত তার কোনো রেহাই ছিল না।",
+   "score": "chrF 27",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "बाघ की दहाड़ किसी शेर की तेज़ आवाज़ वाली दहाड़ की तरह नहीं होती है, लेकिन उसकी बँधी हुई, चिल्लाने जैसी होती है.",
+   "model": "புலிகளின் கூக்குரல் ஒரு சிங்கத்தின் கூக்குரலைப் போன்றது அல்ல, ஆனால் அதன் கூக்குரலைப் போன்றது.",
+   "correct": "புலியின் உறுமல், சிங்கத்தின் பெரிய கர்ஜனை போன்றதல்ல, கத்திப் பேசும்  வார்த்தைகள் கொண்ட உறுமலான சொற்றொடர் போன்றது.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1758",
+   "model": "दीप सहु पेनिल सुला के उतर दीशा में 120 कीमित दूर सित है विलास लास एस्ट्रेलास जैसे रहिया सी इलाका के साथ किंग जोर्ज सबसे बड़ा आईलेंड है",
+   "correct": "द्वीप-समूह, पेनिनसुला की उत्तर दिशा में 120 किमी दूर स्थित है. विलास लास एस्ट्रेलास जैसे रिहायशी इलाके के साथ, किंग ज़ॉर्ज सबसे बड़ा आइलैंड है.",
+   "score": "WER 54%",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1860",
+   "model": "ஆளின்னர் அளவலகு நிறுவகத்தினர் காயம்படைந்தவர்களில் பத்தம்போது போயர்கள் காவல்சராதியாரில் இருக்குறினர்",
+   "correct": "ஆளுனர் அலுவலக நிர்வாகத்தினர் காயமடைந்தவர்களில் பத்தொன்பது பேர்கள் காவல்துறை அதிகாரிகள் என்று கூறினர்.",
+   "score": "WER 100%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1925",
+   "model": "সম্পন্ন কাস্টির বেশী বাগি সিলো তাক্তিক তবে কর্মসুচিতির সাগিতারিযা সাযাপতের পর্জোবে খুন্কুলি অনুকরন করা জন্ন রোচিত হেয় সিলো",
+   "correct": "সম্পন্ন কাজটির বেশিরভাগই ছিল তাত্ত্বিক, তবে  কর্মসূচিটি সাগিটারিয়াস ছায়াপথের পর্যবেক্ষণগুলি অনুকরণ করার জন্য রচিত হয়েছিল।",
+   "score": "WER 107%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1736",
+   "model": "Rolando Mendoza fire his M16 rifle at the terrorists.",
+   "correct": "Rolando Mendoza fired his M16 rifle at the tourists.",
+   "score": "WER 22%",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "जितनी कम चिंता, उतनी ज़्यादा सकारात्मक जीवन ऊर्जा का संचार. हर इंसान परम शांति और संतोष पा सकता है.",
+   "model": "The less anxiety, the more positive life energy communication. Every human being can find the ultimate peace and satisfaction.",
+   "correct": "The lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "இது சந்திரனின் மேற்பரப்பில் கணிசமான அளவிலான இருண்ட பகுதியின் கீழ் மெல்லியதாகவும், மேட்டுநிலங்களின் கீழ் தடிமனாகவும் உள்ளது.",
+   "model": "It is thin beneath a substantial amount of dark area on the Moon's surface and thick beneath the plateaus.",
+   "correct": "It is thinner under the maria and thicker under the highlands.",
+   "score": "chrF 31",
+   "why": "auto-guess: extra or made-up words"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "মারাত্মক আবহাওয়া হল কোনও বিপজ্জনক আবহাওয়া ঘটনার যেমন ক্ষয়ক্ষতি, মারাত্মক সামাজিক বিপর্যয় বা মানবজীবনে প্রাণহানীর মত ঘটনার সাধারণ পরিভাষা।",
+   "model": "A catastrophic weather event is a general term for a catastrophic weather event such as a loss of life, a catastrophic social disaster or a loss of life.",
+   "correct": "Severe weather is the generic term for any dangerous weather phenomenon with the potential to cause damage, serious social disruption, or loss of human life.",
+   "score": "chrF 34",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "By 1976, thirty percent of Machu Picchu had been restored and restoration continues till today.",
+   "model": "1976 तक मचू पिक्चू का तीस प्रतिशत क्षेत्र बहाल हो चुका था और आज भी बहाल किया जा रहा है।",
+   "correct": "सन 1976 तक माचू पिचू के तीस प्रतिशत हिस्से का जीर्णोद्धार कर दिया गया था और जीर्णोद्धार का कार्य आज तक जारी है।",
+   "score": "chrF 29",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+   "model": "இந்த விபத்து மலை நிலப்பரப்பில் ஏற்பட்டது, இது எதிரிகளின் துப்பாக்கியால் ஏற்பட்டதாக நம்பப்படுகிறது.",
+   "correct": "மலைகளில் உயரமான இடத்தில் இந்த விபத்து நிகழ்ந்ததாகவும், இது பகைவர்கள் வைத்த தீயாக இருக்கலாம் என்றும் நம்பப்படுகிறது.",
+   "score": "chrF 35",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "If you're not used to driving on country roads, keep your wits about you: steep grades, narrow lanes, and sharp curves predominate.",
+   "model": "আপনি যদি গ্রামীণ সড়কগুলিতে গাড়ি চালাতে অভ্যস্ত না হন তবে আপনার সম্পর্কে সতর্ক থাকুনঃ তীব্র গ্রেড, সংকীর্ণ সড়ক এবং ধারালো বক্ররেখা প্রাধান্য দেয়।",
+   "correct": "যদি তুমি গ্রাম্য রাস্তায় গাড়ি চালানোয় অভ্যস্থ না থাকো, বুদ্ধি দিয়ে কাজ করো: খাড়া ঢাল, সরু গলি, এবং তীব্র বাঁক প্রাধান্য পায়।",
+   "score": "chrF 28",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "चीज़ों पर कुछ बनाकर या खरोंच कर इस जगह को नुक़सान न पहुँचाएँ.",
+   "model": "பொருட்களை உருவாக்குவதன் மூலமோ அல்லது இழுப்பதன் மூலமோ இந்த இடத்தை சேதப்படுத்தாதீர்கள்.",
+   "correct": "கிராஃபிட்டி கட்டமைப்புகளில் குறிப்பதன் மூலமாகவோ அல்லது கீருவதன் மூலமாகவோ தளத்தின் அழகை கெடுக்க வேண்டாம்.",
+   "score": "chrF 32",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1737",
+   "model": "सेर प्राइड नाम के बड़ा सम्मू में रहने वाली सबसे बड़ी सामाजिक बिल्लिया है।",
+   "correct": "शेर प्राइड नामक बड़े समूहों में रहने वाली सबसे बड़ी सामाजिक बिल्लियाँ हैं.",
+   "score": "WER 54%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1679",
+   "model": "ஏராஸ்மித்தாவர்களின் சுட்டுப்பேனைத்தில் மீதம் அளிசிய நிகழ்ச்சிக்குல இரத்தி செய்தார்.",
+   "correct": "ஏரோஸ்மித், அவர்களின் சுற்றுப்பயணத்தில் மீதமுள்ள இசை நிகழ்ச்சிகளை ரத்து செய்தார்.",
+   "score": "WER 88%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1967",
+   "model": "Pudhanmanter-i-r-sath-e সাখাত কালে লেটন কন্সার্ভেটিপার্টির পরিবেজ বিলের পংখান পংখো ও সম্পুর্ণ পুনলীর খন করার জন্ন কন্সার্ভেটিপ পরিবেজ বিলের পরিবত্তন করার জন্ন বলেসিলেন।",
+   "correct": "প্রধানমন্ত্রীর সাথে সাখ্যাৎকালে লেটন কনজারভেটিভ পার্টির পরিবেশ বিলের \"পুঙ্খানুপুঙ্খ ও সম্পূর্ণ পুনর্লিখন\" করার জন্য কনজারভেটিভ পরিবেশ বিলে পরিবর্তন করার জন্য বলেছিলেন।",
+   "score": "WER 105%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1695",
+   "model": "A simple popular dimmer, especially during the summer, is pa'am oli, bread with olive oil, tomato, and any available condiments such as cheese, tuna fish, etc.",
+   "correct": "A simple popular dinner, especially during the summer, is the Pa amb Oli: Bread with olive oil, tomato, and any available condiments such as cheese, tunafish, etc.",
+   "score": "WER 22%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "इसी तरह, पुरुषों के लिए घुटनों को ढँकने वाले ट्राउज़र पहनना ज़रूरी है.",
+   "model": "Similarly, it is essential for men to wear trousers that cover their knees.",
+   "correct": "Along the same line, men are required to wear trousers covering the knees.",
+   "score": "chrF 39",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "நோயாளிகளை தனிமைப்படுத்தி நோய் பரவாமல் பாதுகாப்பதில் இருந்து அனைத்து நெறிமுறைகளையும் அந்த மருத்துவமனை பின்பற்றியது.",
+   "model": "The hospital followed all protocols to isolate patients and prevent the spread of disease.",
+   "correct": "The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+   "score": "chrF 33",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "সেই কারণে এই বিন্যাসটির আনুমানিক অনুপাত (১২ দিয়ে ভাগ করে সহজ পূর্ন -সংখ্যার গাণিতিক অনুপাত পাওয়া যায়) ধরা হয় ৩ঃ২।",
+   "model": "Therefore, the approximate ratio of this sequence (a mathematical ratio of simple integers divided by 12) is 3:2.",
+   "correct": "The aspect ratio of this format (dividing by twelve to obtain the simplest whole-number ratio) is therefore said to be 3:2.",
+   "score": "chrF 35",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "The tiger's roar is not like the full-voiced roar of a lion, but more like a sentence of snarly, shouted words.",
+   "model": "बाघ की गर्जना शेर की गर्जना की तरह नहीं है, बल्कि एक शोरगर, चिल्लाने वाले शब्दों की तरह है।",
+   "correct": "बाघ की दहाड़ किसी शेर की तेज़ आवाज़ वाली दहाड़ की तरह नहीं होती है, लेकिन उसकी बँधी हुई, चिल्लाने जैसी होती है.",
+   "score": "chrF 30",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The word civilization comes from the Latin civilis, meaning civil, related to the Latin civis, meaning citizen, and civitas, meaning city or city-state, and that also somehow defines the size of the society.",
+   "model": "நாகரிகம் என்ற சொல் லத்தீன் civilis, அதாவது சிவில், லத்தீன் civis, அதாவது குடிமகன், மற்றும் civitas, அதாவது நகரம் அல்லது நகரம்-மாநிலம் ஆகியவற்றிலிருந்து வந்தது, மேலும் இது சமூகத்தின் அளவை ஒருவிதமாக வரையறுக்கிறது.",
+   "correct": "சிவிலிசேஷன் என்ற வார்த்தை, சிவில் என்று பொருள் படும் லத்தீன் சிவிலிஸ் மற்றும் சிடிஜென் என்று பொருள் படும் சிவிஸ் மற்றும் நாடு அல்லது நாட்டின் மாகாணம் என்று பொருள்படும் சிவிடாஸ் ஆகியவற்றிலிருந்து வந்தது மற்றும் அது எப்படியோ சமூகத்தின் அளவையும் வரையறுக்கிறது.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "Just like the moon exerts a pull on the earth, causing tides, so does the Milky Way exert a force on the Sagittarius galaxy.",
+   "model": "চাঁদ পৃথিবীকে টানতে পারে এবং জলপ্রবাহ সৃষ্টি করে, তাই ম্যালাক্সি ওয়েও ধাঁধার গ্যালাক্সির উপর একটি শক্তি প্রয়োগ করে।",
+   "correct": "চাঁদ যেমন পৃথিবীতে একটি টান প্রয়োগ করে যার ফলে জোয়ারের সৃষ্টি হয়, তেমনি আকাশগঙ্গাও সাগিটারিয়াস ছায়াপথের উপরে একটি চাপ প্রয়োগ করে।",
+   "score": "chrF 29",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "गोभी का जूस अम्लीय या आधारभूत (क्षारीय) रसायन के आधार पर रंग बदलता है.",
+   "model": "தேங்காய் சாறு அமில அல்லது அடிப்படை இரசாயனத்தின் அடிப்படையில் நிறத்தை மாற்றுகிறது.",
+   "correct": "முட்டைகோஸ் தனது சாறின் நிறத்தை எவ்வளவு அமிலத்தன்மை அல்லது காரத்தை பொறுத்து மாற்றுகிது.",
+   "score": "chrF 32",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "hi",
+   "input": "speech clip 1843",
+   "model": "University of Dundee के प्रोफेसर पामेला फिंगर्सन लिखते हैं अगर संदिग्दों की फोटो आधी प्रकाशित होती है तो पत्रकारों को यह खतरनाक मार्क पर चलना लगता है।",
+   "correct": "यूनिवर्सिटी ऑफ़ डंडी के प्रोफ़ेसर पामेला फ़र्ग्यूसन लिखते हैं, “अगर संदिग्धों के फ़ोटो आदि प्रकाशित होते हैं तो पत्रकारों को यह ख़तरनाक मार्ग पर चलना लगता है”.",
+   "score": "WER 48%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "ta",
+   "input": "speech clip 1877",
+   "model": "தர்ப்போதிய சட்டமன்றம் மேடவில் ஒரு பினர் மற்றும் அர்ஜென்டினா ஜனாதிபதின் வணைவியான கிரிஷ்டினா வெர்ணாண்ட் ஸ்டி கிரிச்சினர் தன் ஜனாதிபதி பதைவியிற்கான வெட்பாளர் நிலை நேற்றும் அலை விவினோசாயலிஸ்லியிருந்து 50 கிலோமிட்டர் 35 மாயில் கல்துலவில்லை லாவலாட்டன் என்ற நகத்தில் அருவித்தார்",
+   "correct": "தற்போதைய சட்ட மன்ற மேலவை உறுப்பினர் மற்றும் அர்ஜெண்டினா ஜனாதிபதியின் மனைவியான கிரிஸ்டினா ஃபெர்னாண்டெஸ் டீ கிர்ச்னெர் தன் ஜனாதிபதி பதவியிற்கான வேட்பாளர் நிலையை நேற்று மாலை, ப்யூனஸ் அயர்ஸிலிருந்து 50 கிலோமீட்டர் (31 மைல்கள்) தொலைவிலுள்ள லா ப்ளாடா என்ற நகரத்தில் அறிவித்தார்.",
+   "score": "WER 84%",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "bn",
+   "input": "speech clip 1718",
+   "model": "Udpadito jiniş gulii prachin kina tar kono sharbajonin shangani. Kisu Tax Agency 100 basar e besi prono jiniş gulii prachin boli akkha diye thake.",
+   "correct": "উৎপাদিত জিনিসগুলি প্রাচীন কিনা তার কোন সার্বজনীন সংজ্ঞা নেই। কিছু ট্যাক্স অ্যাজেন্সি 100 বছরের বেশি পুরানো জিনিসগুলি  প্রাচীন বলে আখ্যা দিয়ে থাকে।",
+   "score": "WER 105%",
+   "why": "auto-guess: has numbers"
+  },
+  {
+   "task": "speech-to-text",
+   "lang": "en",
+   "input": "speech clip 1669",
+   "model": "Police Superintendent Shandra Shankar Solansky said the accused appeared in court with covered faces.",
+   "correct": "Police superintendent Chandra Shekhar Solanki said the accused appeared in court with covered faces.",
+   "score": "WER 21%",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "hi-en",
+   "input": "चीज़ों पर कुछ बनाकर या खरोंच कर इस जगह को नुक़सान न पहुँचाएँ.",
+   "model": "Do not damage this place by making or scratching things.",
+   "correct": "Do not deface the site by marking or scratching graffiti into structures.",
+   "score": "chrF 41",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "ta-en",
+   "input": "எனவே, இக்குறியிடல் வெறுமனே ஒரு லேபிளாகச் சேர்க்கப்பட்டிருக்கலாம்.",
+   "model": "So, the tag could have simply been added as a label.",
+   "correct": "So, it is likely that the notation was added simply as a label.",
+   "score": "chrF 34",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "en",
+   "pair": "bn-en",
+   "input": "কাঠামোতে গ্রাফিতি বা অন্য কিছু একে জায়গাটির সৌন্দর্য নষ্ট করবেন না।",
+   "model": "Don't let graffiti or anything else in the structure ruin the beauty of the place.",
+   "correct": "Do not deface the site by marking or scratching graffiti into structures.",
+   "score": "chrF 36",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "hi",
+   "pair": "en-hi",
+   "input": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+   "model": "हादसा पहाड़ी इलाके में हुआ और माना जाता है कि यह शत्रुतापूर्ण आग का परिणाम था।",
+   "correct": "पहाड़ी इलाकों में ज़्यादा दुर्घटना हुई. इसकी वजह आपसी दुश्मनी को माना जाता है.",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "en-ta",
+   "input": "The work done was mostly theoretical, but the program was written to simulate observations made of the Sagittarius galaxy.",
+   "model": "செய்த பணி பெரும்பாலும் தத்துவார்த்தமானது, ஆனால் Sagittarius கேலக்ஸியைப் பற்றிய கண்காணிப்புகளை உருவகப்படுத்துவதற்காக இந்த திட்டம் எழுதப்பட்டது.",
+   "correct": "கோட்பாட்டை அடிப்படையாகக் கொண்ட வேலைகள் மட்டுமே பெரும்பாலும் முடிக்கப்பட்டுள்ளன. ஆனால் இந்த திட்டம் தனுசு விண்மீனை கண்காணிக்க துண்டுதலாக எழுதப்பட்டது.",
+   "score": "chrF 37",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "bn",
+   "pair": "en-bn",
+   "input": "According to Japan's nuclear agency, radioactive caesium and iodine has been identified at the plant.",
+   "model": "জাপানের পারমাণবিক সংস্থার মতে, এই কারখানায় রেডিয়েকটিভ কেসিয়াম ও আইডিন সনাক্ত করা হয়েছে।",
+   "correct": "জাপানের পারমানবিক সংস্থার সূত্রে জানা গিয়েছে, প্ল্যান্টটিতে তেজস্ক্রিয় সিজিয়াম এবং আয়োডিন চিহ্নিত করা হয়েছে।",
+   "score": "chrF 31",
+   "why": "auto-guess: no obvious pattern, needs a human look"
+  },
+  {
+   "task": "translation",
+   "lang": "ta",
+   "pair": "hi-ta",
+   "input": "लीक के अनुसार, दस्तावेज़, सीमा विवाद को संदर्भित करेगा, जो फ़िलिस्तीन 1967 के मध्यपूर्व युद्ध से पहले सीमाओं के आधार पर चाहता है.",
+   "model": "1967 மத்திய கிழக்கு போருக்கு முன்னர் பாலஸ்தீனம் விரும்பிய எல்லை சர்ச்சையை இந்த ஆவணம் குறிக்கும் என்று கசிவு தெரிவிக்கிறது.",
+   "correct": "வெளிவந்த இரகசிய செய்தியின்படி, ஆவணம், பாலஸ்தீனம் 1967இல் நடந்த மத்தியக் கிழக்கு போரின் போது இருந்த எல்லையை உரிமை கொண்டாடுவதைக் குறித்த எல்லை முரண்பாடு குறித்ததாக இருக்கும்.",
+   "score": "chrF 33",
+   "why": "auto-guess: has numbers"
+  }
+ ],
+ "asr_compare_model": "openai/whisper-small",
+ "hinglish": {
+  "baseline": {
+   "wer": null,
+   "chrf": 54.0,
+   "name": "Baseline: auto → NLLB"
+  },
+  "fix": {
+   "wer": null,
+   "chrf": 54.0,
+   "name": "Baseline: auto → NLLB",
+   "route": "auto",
+   "gain": 0.0,
+   "gain_range": "+0.0 to +0.0"
+  },
+  "copy": {
+   "chrf": 28.51,
+   "name": "Baseline: no translation"
+  },
+  "variants": {
+   "copy": 28.51,
+   "auto": 54.0,
+   "hint": 54.0,
+   "pivot": 64.97
+  },
+  "dev": {
+   "auto": 63.42,
+   "hint": 62.74,
+   "pivot": 62.93
+  },
+  "n": 36,
+  "sentences": 18,
+  "speakers": 2,
+  "speech": {
+   "human_recordings": 0,
+   "computer_recordings": 36,
+   "computer_voice": "ElevenLabs text-to-speech (eleven_v4)"
+  },
+  "note": "Some or all Hinglish clips are computer-made speech (ElevenLabs), not real speakers. Real speech is usually harder, so read these scores as an upper estimate.",
+  "by_style": [
+   {
+    "How it was said": "english",
+    "Recordings": 14,
+    "Baseline auto chrF": 97.04,
+    "Ours chrF": 97.04,
+    "Whisper picked the speaker's language %": 100.0
+   },
+   {
+    "How it was said": "hindi",
+    "Recordings": 14,
+    "Baseline auto chrF": 55.46,
+    "Ours chrF": 55.46,
+    "Whisper picked the speaker's language %": 100.0
+   },
+   {
+    "How it was said": "hinglish",
+    "Recordings": 36,
+    "Baseline auto chrF": 54.0,
+    "Ours chrF": 54.0,
+    "Whisper picked the speaker's language %": 100.0
+   }
+  ]
+ }
+}

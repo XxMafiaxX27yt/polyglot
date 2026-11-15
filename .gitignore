@@ -1,0 +1,27 @@
+# Things that are downloaded or built, not written
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+
+# Test output
+test-results/
+test-results-integration/
+playwright-report/
+polyglot_data/
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+.claude/
+
+# Older copies of the web app (the current one is ChatGPT-Codex/)
+ChatGPT-Codex-backup-before-v2-20261115/
+UI-from-friend/
+UI-from-friend-v2/
+
+# Working notes that are not part of the project
+VIDEO_SCRIPT.md
+*.zip
