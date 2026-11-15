@@ -2,7 +2,27 @@
 
 **Deadline:** Monday 16 Nov, 10:29 AM India time. Aim to submit a first version on Sunday evening.
 **This file is the hand-off.** If Claude runs out of limit, Codex or Antigravity can continue from here.
-**Last updated:** Sunday 15 Nov, 2:30 PM.
+**Last updated:** Sunday 15 Nov, 9:55 PM. Claude hit its usage limit here, so read this block first.
+
+## Where things stand (Sunday 15 Nov, 9:55 PM)
+
+The project is submittable as it is: public repo, shared notebook, write-up in `../README.md`. Still missing for submission: the 2-minute video and the submission itself (both the team's).
+
+**Optional upgrade, prepared but NOT run: a second Hinglish test plus blind human ratings.**
+
+- Why: on Hinglish our method only tied the baseline, and there is no check by a real speaker yet. Both are things the judges score.
+- The rules are in `SECOND_TEST_PLAN.md` and the 49 new sentences in `sentences_confirm.csv`. Both were pushed to GitHub at 9:28 PM, before any run.
+- `dev/build_notebook.py`, `dev/run_notebook.py` and `polyglot_eval.ipynb` are changed on the laptop and **not committed**: new cell 13c (second test), cell 14 (a rating page with a public link), cell 14b (counts ratings). `--fake` passes. Never run in Colab. Commit them only after a successful Colab run; until then do not `git add -A`.
+- The old rating sheet compared the baseline with itself (because our rule had picked the baseline), so it was useless. Cell 14 now compares baseline against direct translation.
+- User's steps: upload the new `polyglot_eval.ipynb` to Colab as a new file (keep the old shared notebook as the fallback), T4 GPU, Run all (about 40 minutes). Open the rating link from cell 14, each rater types a first name and rates 49 sentences. Then run cell 14b and the Save cell again, save and share the notebook, and send `results.json` and the new link. Then: copy `results.json` here, update finding 4 and the limits in `../README.md`, replace the notebook link, commit everything, push.
+- ElevenLabs quota may run short: voice 1 reads all 49 sentences first, voice 2 as far as the quota goes. The notebook reports the clip count.
+- If there is no time, skip all of this. Then run `git checkout -- "Claude-Claude code/dev" "Claude-Claude code/polyglot_eval.ipynb"` to drop the unrun notebook changes, and say in the README that the second test was planned but not run (the plan file is public).
+
+**Preview site, half done.** A `gh-pages` branch with the web app in demo mode (plus `results.json`) is on GitHub. But https://xxmafiaxx27yt.github.io/polyglot/ currently shows the README, because GitHub Pages is set to the `main` branch. The user must change it: repo Settings → Pages → Branch → `gh-pages` → Save. Not yet mentioned in the README; when live, describe it honestly as a scripted demo of the screens with the real Results page.
+
+**Not done:** a one-page PDF of the write-up (only needed if the submission form wants a file). The Windows user name is still in the repo's history (first commit); the forced push to remove it was blocked by the app's safety check.
+
+Earlier times in this file were Claude's guesses. Real times from git: first commit 1:30 PM, pushed to GitHub 2:12 PM, README fix 2:16 PM, write-up finished 6:42 PM.
 
 ## What Part A is
 
