@@ -13,17 +13,17 @@ FastAPI + WebSocket backend implementing **Part B** of [CONTRACT.md](../CONTRACT
 ### 1. Stub mode (`FAKE_CORE=1`) — no AI models required
 ```powershell
 $env:FAKE_CORE="1"
-& "C:\Users\rajes\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\python.exe" server.py
+python server.py
 ```
 
 ### 2. Real AI Core mode (with Part A's `polyglot_core.py`)
 `server.py` automatically looks for `polyglot_core.py` in `./` (`Gemini-Antigravity/`) and in `../Claude-Claude code/`.
 ```powershell
 $env:FAKE_CORE="0"
-& "C:\Users\rajes\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\python.exe" server.py
+python server.py
 ```
 
 ## Running the End-to-End Tests
 ```powershell
-& "C:\Users\rajes\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\python.exe" test_server.py
+python test_server.py
 ```
