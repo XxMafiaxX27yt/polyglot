@@ -1,6 +1,6 @@
 # Second Hinglish test: the plan, written before the test
 
-Written on Sunday 15 November 2026, about 3:30 PM India time. At that moment no clip for this test had been made and nothing had been scored. The repository's history shows when this file was added.
+Written on Sunday 15 November 2026, about 9:30 PM India time. At that moment no clip for this test had been made and nothing had been scored. The repository's history shows when this file was added.
 
 ## Why a second test
 
