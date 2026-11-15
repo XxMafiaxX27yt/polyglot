@@ -2,7 +2,7 @@
 
 **Deadline:** Monday 16 Nov, 10:29 AM India time. Aim to submit a first version on Sunday evening.
 **This file is the hand-off.** If Claude runs out of limit, Codex or Antigravity can continue from here.
-**Last updated:** Sunday 15 Nov, 2 PM.
+**Last updated:** Sunday 15 Nov, 2:30 PM.
 
 ## What Part A is
 
@@ -47,9 +47,9 @@ The AI core and its honest test. This is the part the judges score.
 - [x] Notebook saved in Colab and shared (Sunday 15 Nov, about 12:50 PM). The link opens without signing in: https://colab.research.google.com/drive/1bWloT4Yrqgbe1rOwcCyllEmfKYQhePhr?usp=sharing
 - [x] Drafts written by Claude: the write-up (now the top of `../README.md`) and `../VIDEO_SCRIPT.md` (2 minutes). The user must read, correct and reword both. The team line and the ratings line in the write-up are still blanks.
 - [x] App tested end to end with ChatGPT's updated UI and the real core, by Claude with robot-voice clips (see "The whole app, checked on the laptop").
-- [x] One local git repo with a first commit. Not pushed.
+- [x] One git repo, pushed to a private GitHub repo named `polyglot` on the user's account.
 - [ ] A person tries the app by speaking in two browser tabs.
-- [ ] Write-up reworded by the user. Video recorded. Repo pushed to GitHub. Submitted.
+- [ ] Write-up reworded by the user, then pushed again. Video recorded. Repo made public if the rules need it. Submitted.
 
 Not re-run after the last fixes: the full `--real 2` pass (the laptop was on battery). The two fixes were checked with a short real-model script instead, and the `--fake` pass was re-run.
 
@@ -72,11 +72,14 @@ What was checked, all by Claude, none of it with a human speaking:
 
 ## The single repo (Sunday 15 Nov, 2 PM)
 
-- A git repo now exists at the project root, with one local commit on `main`. Nothing has been pushed anywhere. `gh` is not installed and no GitHub repo exists yet.
+- A git repo exists at the project root, on branch `main`.
+- **It is on GitHub** since Sunday 15 Nov, about 2:30 PM: a **private** repo named `polyglot` on the user's own account, created by the user (`git remote -v` shows the address). Claude pushed and checked that GitHub holds the same commit as the laptop. Checked as private: the page answers 404 to someone who is not signed in.
+- To upload later changes: `git add -A`, `git commit -m "..."`, `git push`. Git on this laptop is already signed in to GitHub through Git Credential Manager. `gh` is not installed.
+- Private first, on Claude's advice: the README is still a draft and Gemini's README shows the Windows user name. Making it public (repo Settings → General → Danger Zone → Change visibility) is the user's click, after those are fixed and if the hackathon needs a public link.
 - `../README.md` is the write-up (moved from `WRITEUP.md`, which no longer exists) plus "what is in this repo" and "how to run it". It is still a draft: the team line and the human-ratings line are blanks.
 - Left out by `../.gitignore`: `node_modules`, `dist`, `.venv`, test output, `.env` files, `.claude/`, the two `UI-from-friend` folders, ChatGPT's backup folder and `VIDEO_SCRIPT.md`.
 - Commits use a neutral local identity ("Polyglot Team"), because this laptop has no git name set and the contract says round 1 is judged blind. Change it with `git config user.name` and `git config user.email` inside the project if the team wants real names.
-- **Before pushing, the user decides:** public or private, whether names may appear (blind judging), and whether to fix `Gemini-Antigravity/README.md`, which shows the laptop's Windows user name in three file paths (Gemini's folder, so Claude has not edited it).
+- **Before making it public, the user decides:** whether names may appear (blind judging; note the repo address itself shows the GitHub account name), and whether to fix `Gemini-Antigravity/README.md`, which shows the laptop's Windows user name in three file paths (Gemini's folder, so Claude has not edited it).
 - The notebook file in the repo has no outputs. The copy with outputs is the Colab link in the README.
 
 ## Hinglish results (full run, Sunday 15 Nov, 1:45 AM; this is `results.json` now)
@@ -177,7 +180,7 @@ All from 2 test sentences per language or from robot voices, so these are leads 
 
 ## Next steps, in order
 
-0. Done: ElevenLabs clips made, full run with Hinglish finished, notebook shared, app checked, local repo made. **Now, all for the user:** try the app by voice in two tabs; fill in the blind ratings or say in the write-up that they were not done; reword the write-up in `../README.md`; record the video from `../VIDEO_SCRIPT.md`; create a GitHub repo and push; submit before Monday 16 Nov, 10:29 AM India time.
+0. Done: ElevenLabs clips made, full run with Hinglish finished, notebook shared, app checked, local repo made. **Now, all for the user:** try the app by voice in two tabs; fill in the blind ratings or say in the write-up that they were not done; reword the write-up in `../README.md`; record the video from `../VIDEO_SCRIPT.md`; tell Claude to push the final changes; make the GitHub repo public if the rules need a public link; submit before Monday 16 Nov, 10:29 AM India time.
 1. Done: quick and full Colab runs with the big model. Open question for the user: is 7.3 s fast enough for the demo, or test `whisper-large-v3-turbo`?
 2. Data person: start `DATA_GUIDE.md` now. It does not depend on any code.
 3. Antigravity: add the one-line language hint from `../CONTRACT.md` ("Update from Part A").
