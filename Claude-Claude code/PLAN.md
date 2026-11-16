@@ -4,7 +4,15 @@
 **This file is the hand-off.** If Claude runs out of limit, Codex or Antigravity can continue from here.
 **Last updated:** Sunday 15 Nov, 9:55 PM. Claude hit its usage limit here, so read this block first.
 
-## Where things stand (Sunday 15 Nov, 9:55 PM)
+## Where things stand (Monday 16 Nov, 7:30 AM) — read this one first
+
+- **Second Hinglish test is done and passed.** Full Colab run with the new notebook: direct translation 63.9 chrF, baseline 55.5, gap +8.4 (95% range +4.0 to +12.4) on 49 new sentences. One team member rated them blind: 1.61 against 1.18.
+- `results.json` here is that run (generated 2026-11-16T01:44Z). The root `README.md` (the write-up) has the result as finding 5 and links the new notebook: https://colab.research.google.com/drive/1LiMgOwAx-dico1DhB2wfxfALFQOxnr7m?usp=sharing
+- Notebook changes (second test, rating page) are committed and pushed. The preview site (`gh-pages` branch) shows the new results.
+- Left for the team: resubmit the form with the new notebook link before 10:29 AM; the 2-minute video is optional.
+- The block below is older and kept for history.
+
+## Where things stood (Sunday 15 Nov, 9:55 PM)
 
 The project is submittable as it is: public repo, shared notebook, write-up in `../README.md`. Still missing for submission: the 2-minute video and the submission itself (both the team's).
 

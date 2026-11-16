@@ -2,7 +2,7 @@
 
 **Track:** AI + Languages
 **Team:** names are on the submission form
-**Notebook with every result:** https://colab.research.google.com/drive/1bWloT4Yrqgbe1rOwcCyllEmfKYQhePhr?usp=sharing
+**Notebook with every result:** https://colab.research.google.com/drive/1LiMgOwAx-dico1DhB2wfxfALFQOxnr7m?usp=sharing
 **Preview of the app's screens:** https://xxmafiaxx27yt.github.io/polyglot/ (the call there is a scripted demo; its Results page shows our real numbers)
 
 ## The problem
@@ -43,8 +43,9 @@ We started from two suggested projects, **4.4.2 Translation quality test** and *
 1. **Translation beats its baseline easily** (49 to 64 chrF on seven language pairs, against under 1 for no translation). Most of the loss comes from mistakes in hearing the speech.
 2. **The speech model matters most.** The small model got three in four Hindi words wrong. The large one cut that to 29%, but takes 6 to 7 seconds per sentence on a T4 GPU against 4.
 3. **Telling Whisper the language helps real Hindi speech:** 29% errors against 40% when it guesses (the baseline). It guessed the wrong language on 16 clips in 100.
-4. **On Hinglish our chosen method did not beat the baseline.** Both scored 54 chrF. The three methods were level on the practice sentences, so our rule picked the baseline. On the test sentences Whisper translating directly scored 65. We did not switch after seeing the test scores; with 18 sentences this is a lead, not a result.
-5. **Mixing cost little here:** the same voices scored 97 in English, 55.5 in pure Hindi and 54 in Hinglish. The drop is Hindi itself.
+4. **On Hinglish our chosen method did not beat the baseline.** Both scored 54 chrF. The three methods were level on the practice sentences, so our rule picked the baseline. On the test sentences Whisper translating directly scored 65. We did not switch after seeing the test scores; with 18 sentences this was a lead, not a result.
+5. **A second test confirmed the lead.** We wrote the rules down first (`Claude-Claude code/SECOND_TEST_PLAN.md`, pushed before any run), then tried direct translation against the baseline on 49 new sentences (98 clips). Direct scored 63.9 chrF (95% range 59.7 to 67.0), the baseline 55.5 (52.0 to 58.9). The gap is +8.4 points (range +4.0 to +12.4), so by our rule direct translation is better on Hinglish. It held for both voices (63.0 and 64.7 against 55.4 and 55.6). One team member then rated all 98 translations blind, from 0 to 2, without knowing which method made which: direct averaged 1.61 with 71% fully right, the baseline 1.18 with 35%. Direct was rated higher on 22 sentences, the same on 21 and lower on 6 (average gap +0.43, range +0.18 to +0.65).
+6. **Mixing cost little here:** the same voices scored 97 in English, 55.5 in pure Hindi and 54 in Hinglish. The drop is Hindi itself.
 
 **Where it fails**
 
@@ -52,11 +53,11 @@ We started from two suggested projects, **4.4.2 Translation quality test** and *
 - "7 baje" was heard as "साथ बजे" ("with o'clock"), and the 7 was lost.
 - Bengali is still poor (84% WER). Its letter-level error is 30%, so many errors look like spelling and spacing. We have not had a Bengali reader check this.
 
-**What this cannot show:** the Hinglish clips are computer voices and there are only 18 test sentences; we did not finish the blind human ratings; only four of the app's 20 languages are tested (the app marks the rest as untested); on a laptop without a GPU the live app uses the small model and makes more mistakes than the numbers above.
+**What this cannot show:** the Hinglish clips are computer voices and the two tests have 18 and 49 sentences; the blind ratings come from one rater, who is on our team; only four of the app's 20 languages are tested (the app marks the rest as untested); on a laptop without a GPU the live app uses the small model and makes more mistakes than the numbers above.
 
 ## What we'd do next
 
-Run the second Hinglish test we have already written the rules for (`Claude-Claude code/SECOND_TEST_PLAN.md`): direct translation against the baseline on 49 new sentences, with blind ratings by Hindi speakers. Then record real Hinglish speakers.
+Record real Hinglish speakers and repeat the second test on them, since computer voices are cleaner than people. Then make the app use direct translation whenever the listener wants English, and have a Bengali reader check the Bengali errors.
 
 ## Sources
 

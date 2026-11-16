@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T20:15:13Z",
+ "generated": "2026-11-16T01:44:27Z",
  "models": {
   "core": "0.1.0",
   "asr_model": "openai/whisper-large-v3",
@@ -9,7 +9,7 @@
   "gpu": "Tesla T4",
   "torch": "2.14.1+cu130",
   "transformers": "5.22.1",
-  "warmup_s": 174.7
+  "warmup_s": 29.7
  },
  "sentences_per_language": 100,
  "quick_test": false,
@@ -215,10 +215,10 @@
   }
  },
  "latencyMs": {
-  "asr": 4247,
-  "mt": 1155,
-  "tts": 408,
-  "total": 5865,
+  "asr": 4351,
+  "mt": 1228,
+  "tts": 427,
+  "total": 5986,
   "note": "median computing time: one Hindi speaker, English and Tamil listeners"
  },
  "worst": [
@@ -841,7 +841,7 @@
    "computer_recordings": 36,
    "computer_voice": "ElevenLabs text-to-speech (eleven_v4)"
   },
-  "note": "Some or all Hinglish clips are computer-made speech (ElevenLabs), not real speakers. Real speech is usually harder, so read these scores as an upper estimate.",
+  "note": "Some or all Hinglish clips are computer-made speech (ElevenLabs), not real speakers. Real speech is usually harder, so read these scores as an upper estimate. Second test on 49 new sentences (98 clips): Whisper translating directly scored 63.9 chrF and the baseline 55.5, a difference of +8.4 (95% range +4.0 to +12.4). By the rule we wrote down beforehand: confirmed: direct translation is better. Blind ratings by 1 team member(s) on 49 sentences (0 to 2): Pivot: Whisper → English 1.61, Baseline: auto → NLLB 1.18.",
   "by_style": [
    {
     "How it was said": "english",
@@ -864,6 +864,56 @@
     "Ours chrF": 54.0,
     "Whisper picked the speaker's language %": 100.0
    }
-  ]
+  ],
+  "confirm": {
+   "question": "On new sentences, does Whisper translating directly beat the baseline (auto, then NLLB)?",
+   "n": 98,
+   "sentences": 49,
+   "speakers": 2,
+   "human_recordings": 0,
+   "computer_recordings": 98,
+   "copy": 28.13,
+   "baseline": 55.5,
+   "direct": 63.86,
+   "gain": 8.36,
+   "gain_range": [
+    4.03,
+    12.45
+   ],
+   "verdict": "confirmed: direct translation is better",
+   "summary": "Second test on 49 new sentences (98 clips): Whisper translating directly scored 63.9 chrF and the baseline 55.5, a difference of +8.4 (95% range +4.0 to +12.4). By the rule we wrote down beforehand: confirmed: direct translation is better."
+  },
+  "human_ratings": [
+   {
+    "system": "Baseline: auto → NLLB",
+    "mean_rating": 1.184,
+    "fully_right": 34.694,
+    "rated": 49
+   },
+   {
+    "system": "Pivot: Whisper → English",
+    "mean_rating": 1.612,
+    "fully_right": 71.429,
+    "rated": 49
+   }
+  ],
+  "human_ratings_info": {
+   "rated_set": "second test",
+   "raters": 1,
+   "sentences": 49,
+   "compared": [
+    "Baseline: auto → NLLB",
+    "Pivot: Whisper → English"
+   ],
+   "second_better": 22,
+   "same": 21,
+   "first_better": 6,
+   "mean_difference": 0.429,
+   "difference_range": [
+    0.184,
+    0.653
+   ],
+   "agreement_with_chrf": 0.5
+  }
  }
 }

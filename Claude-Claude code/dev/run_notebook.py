@@ -212,11 +212,12 @@ OVERRIDE = {}
 if FAKE_MODE:
     OVERRIDE["load"] = "import polyglot_core as pc\nINFO = FAKE.install(pc)\nprint(INFO)"
     OVERRIDE["fleurs"] = ("import numpy as np, pandas as pd\nSIDS, text, audio = FAKE.fleurs(LANGS_TESTED, N_PER_LANG)\n"
-                          "FAKE.hinglish(pc, HINGLISH_DIR)\nprint(len(SIDS), 'fake sentences')")
+                          "FAKE.hinglish(pc, HINGLISH_DIR)\nFAKE.hinglish(pc, CONFIRM_DIR)\nprint(len(SIDS), 'fake sentences')")
 
 # ---- run ------------------------------------------------------------------------------
 nb = json.load(open(os.path.join(ROOT, "polyglot_eval.ipynb"), encoding="utf8"))
 G = {"__name__": "__main__", "FAKE": FAKE}
+SOURCES = {}
 launched = []
 os.chdir(tmp)   # the notebook also writes results.json to the current folder: keep test output out of the project
 if not FAKE_MODE:
@@ -237,6 +238,7 @@ for cell in nb["cells"]:
     if cid == "hinglish_load" and args.hinglish:
         shutil.copytree(args.hinglish, G["HINGLISH_DIR"], dirs_exist_ok=True)
     print(f"\n{'=' * 30} cell: {cid} {'=' * 30}", flush=True)
+    SOURCES[cid] = src
     exec(compile(src, f"<cell {cid}>", "exec"), G)
     if cid == "setup":
         try:
@@ -248,9 +250,36 @@ for cell in nb["cells"]:
             G["RUN_DEMO"] = G["RUN_RECORDER"] = False
             print("(gradio not installed here: demo and recorder cells are skipped)")
 
+# ---- the second test, and the rating page used the way a teammate would use it -----------
+if FAKE_MODE:
+    assert G.get("CONFIRM") is not None, "the second test did not run"
+    assert G.get("RATE") is not None and G["RATE"]["set"] == "second test", "the rating sheet was not made from the second test"
+    first = json.load(open(os.path.join(G["RESULTS_DIR"], "results.json"), encoding="utf8"))
+    assert "human_ratings" not in first["hinglish"], "nobody has rated yet, so there must be no ratings"
+    assert first["hinglish"]["confirm"]["verdict"] in ("confirmed: direct translation is better", "not confirmed", "the baseline is better")
+    if G.get("RUN_RATER") and launched:
+        assert G.get("RATE_APP_OK"), "the rating page failed to build"
+        n_rows = len(G["RATE"]["sheet"])
+        assert "first name" in G["rate_save"](0, "", 2, 1)[-1] and "both" in G["rate_save"](0, "Asha", None, 1)[-1]
+        for who, (sa, sb) in (("Asha", (2, 1)), ("Ravi", (1, 1))):
+            for i in range(n_rows):
+                out = G["rate_save"](i, who, sa, sb)
+            assert "All done" in out[-1], out[-1]
+        for cid in ("ratings_count", "save"):
+            print(f"\n{'=' * 30} cell again: {cid} {'=' * 30}", flush=True)
+            exec(compile(SOURCES[cid], f"<cell {cid}>", "exec"), G)
+        info = G["RATING_INFO"]
+        assert info and info["raters"] == 2 and info["sentences"] == n_rows, info
+        print("rating page ok:", json.dumps(info, ensure_ascii=False))
+
 # ---- checks ---------------------------------------------------------------------------
 print(f"\n{'=' * 30} checks {'=' * 30}")
 res = json.load(open(os.path.join(G["RESULTS_DIR"], "results.json"), encoding="utf8"))
+if FAKE_MODE and G.get("RATING_INFO"):
+    assert res["hinglish"]["human_ratings_info"]["raters"] == 2 and len(res["hinglish"]["human_ratings"]) == 2, res["hinglish"]
+    assert "Blind ratings by 2 team member(s)" in res["hinglish"]["note"] and "Second test on" in res["hinglish"]["note"]
+    print("second test:", json.dumps({k: v for k, v in res["hinglish"]["confirm"].items() if k != "summary"}, ensure_ascii=False))
+    print("note shown on the Results page:", res["hinglish"]["note"])
 assert set(res) >= {"generated", "asr", "mt", "latencyMs", "worst"}, sorted(res)
 assert res.get("hinglish", {}) is not None, "hinglish must be left out, never null"
 for l in G["LANGS_TESTED"]:
